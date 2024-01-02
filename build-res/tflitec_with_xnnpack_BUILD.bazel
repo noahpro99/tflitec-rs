@@ -31,11 +31,14 @@ tflite_cc_shared_object(
 cc_library(
     name = "c_api_with_xnn_pack",
     hdrs = ["//tensorflow/lite/c:c_api.h",
-            "//tensorflow/lite/delegates/xnnpack:xnnpack_delegate.h"],
+            "//tensorflow/lite/delegates/xnnpack:xnnpack_delegate.h",
+            "//tensorflow/lite/delegates/flex:tensorflowlite_flex.h",
+        ],
     copts = tflite_copts(),
     deps = [
         "//tensorflow/lite/c:c_api",
-        "//tensorflow/lite/delegates/xnnpack:xnnpack_delegate"
+        "//tensorflow/lite/delegates/xnnpack:xnnpack_delegate",
+        "//tensorflow/lite/delegates/flex:tensorflowlite_flex",
     ],
     alwayslink = 1,
 )
